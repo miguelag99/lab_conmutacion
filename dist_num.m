@@ -1,16 +1,11 @@
-## Author: miguel <miguel@miguel-TM1613>
-## Created: 2021-10-18
+clc; clear;
 
-pkg load statistics
-
-function inv = inv_func(x)
-  inv = -log(x)/2;
-endfunction
+n_sample = 10000;
 
 
-M = rand(1,1000);
-result = inv_func(M);
-M_exp = exprnd(1/2,1,1000);
+M = rand(1,n_sample);
+result = -log(M)/2;
+M_exp = exprnd(1/2,1,n_sample);
 
 figure
 axis square
@@ -19,9 +14,9 @@ hold on
 plot([0:0.1:5],[0:0.1:5])
 
 
-M = rand(1,10000);
-result = inv_func(M);
-M_exp = exprnd(1/2,1,10000);
+M = rand(1,n_sample);
+result = -log(M)/2;;
+M_exp = exprnd(1/2,1,n_sample);
 
 figure
 axis square

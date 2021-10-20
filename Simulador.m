@@ -1,3 +1,5 @@
+clc; clear;
+
 global now FES maxEvent eventTime eventType eventNext 
 global eventIsFree slotFreeFlag slotBusyFlag
 
@@ -29,24 +31,27 @@ currentEvent = 1;
 FES(2,:) = [simulationTime eStop 0 slotBusyFlag];
 FES(currentEvent,eventNext) = 2;
 
-while (1)
+scheduler(4,eStop);
+
+while true
     disp(FES(currentEvent,eventType))
+    prev_event = currentEvent;
     switch FES(currentEvent,eventType)
         case eStart
             now = 0;
             currentEvent = FES(currentEvent,eventNext);
-            FES(currentEvent,:) = [inf 0 0 slotFreeFlag];
+            FES(prev_event,:) = [inf 0 0 slotFreeFlag];
             disp("Simulation started");
-            break;
         case eStop
-            ## Si se resta del now anterior se obtiene el paso de tiempo
+            % Si se resta del now anterior se obtiene el paso de tiempo
             now = FES(currentEvent,eventTime);
             disp("Simulation finished");
             return;
         otherwise
             disp("Event type not defined");
             return;
-    endswitch
-endwhile
+    end
+end
+
 
 
