@@ -21,7 +21,7 @@ FES(:,4) = 1;
 
 %% Event types and var declaration
 
-simulationTime = 1000;
+simulationTime = 1500;
 
 
 eStart = 1;
@@ -30,7 +30,7 @@ eArrival = 3;
 eDeparture = 4;
 
 lambda = 2;
-mu = 6;
+mu = 3;
 
 serverUsed = 0;
 numberInQueue = 0;
@@ -71,7 +71,7 @@ while true
             mean_users(find(mean_users(:,1) == -1,1,'first'),:) = [now new_mean];
             
             disp("Simulation finished");
-            
+            disp("Final mean users: "+num2str(new_mean))
             
             figure('Name','Queue length')
             statQueueLength = vertcat([0,0],statQueueLength);
