@@ -1,5 +1,5 @@
 function scheduler(insEvent_time,insEvent_type)
-    
+%Añade un evento especifico en la FES
     global FES eventTime eventNext 
     global eventIsFree slotBusyFlag
     

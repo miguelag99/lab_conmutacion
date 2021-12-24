@@ -1,3 +1,4 @@
+% Pruebas de la parte de generacion de numeros aleatorios
 clc; clear;
 
 n_sample = 10000;
